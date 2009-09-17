@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys,os,glob,operator
 from mutagen.mp3 import MP3
 from mutagen.easyid3 import EasyID3
