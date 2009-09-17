@@ -6,7 +6,6 @@ import mutagen.id3
 
 import sys
 import os
-import filecmp
 import difflib
 import shutil
 import tempfile
@@ -34,16 +33,14 @@ def main():
   shutil.copy (file2, temp2)
   normalizeMP3Tag(temp1)
   normalizeMP3Tag(temp2)
-
   tag1 = MP3(file1, ID3=EasyID3)
   tag2 = MP3(file2, ID3=EasyID3)
-  
 
-  if filecmp.cmp(temp1, temp2):
+  if not os.system("diff %s %s" % (temp1, temp2)): 
     print "Files %s and %s are identical" % (file1,file2)
   else:
     writeMP3Tag(temp2, tag1)
-    if filecmp.cmp(temp1, temp2):
+    if not os.system("diff %s %s" % (temp1, temp2)): 
       print "Audio-Data in Files %s and %s is identical, but Tags differ!" % (file1,file2)
       diff = difflib.ndiff(tag1.pprint().splitlines(1), tag2.pprint().splitlines(1))
       print "--- %s %s" % (time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(os.path.getmtime(file1))),file1)
