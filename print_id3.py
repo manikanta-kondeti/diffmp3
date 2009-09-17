@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import os
 from mutagen.easyid3 import EasyID3
