@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
+from mutagen.mp3 import MP3
+from mutagen.easyid3 import EasyID3
+from mutagen.id3 import ID3 
+
 import sys
 import os
-from mutagen.easyid3 import EasyID3
-from mutagen.mp3 import MP3
 
 def main():
   if len(sys.argv) <> 2:
