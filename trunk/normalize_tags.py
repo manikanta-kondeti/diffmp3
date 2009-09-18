@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 
+# Simple Script to order ID3-Tags in MP3
+# This has nothing to do with normalising the audio data. 
+# Copyright 2009 Daniel Bachmann
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of version 2 of the GNU General Public License as
+# published by the Free Software Foundation.
+#
 import sys,os,glob,operator
 from mutagen.mp3 import MP3
 from mutagen.easyid3 import EasyID3
